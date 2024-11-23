@@ -1,16 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface pizzaType {
-  name: string;
-  description: string;
-  variant: {
-    size: string;
-    price: number;
-  }[],
-  img: string
-}
+import { TpizzaState } from './pizzas.types';
+import { Tpizza } from "../../../5entities/Pizza/models/pizza.types";
 
-const pizzas: pizzaType[] = [
+
+
+
+
+
+const pizzas: Tpizza[] = [
   {
     name: "Неополитанская",
     description: "Итальянская пицца с изысканым вкусом и острым соусом",
@@ -74,65 +72,23 @@ const pizzas: pizzaType[] = [
   },
 ];
 
-interface pizzaState {
-  data: pizzaType[];
-}
 
-const pizzaSlice = createSlice({
+
+const pizzasSlice = createSlice({
   name: "pizza",
   initialState: {
     data: pizzas,
   },
   reducers: {
-    addPizza: (state: pizzaState, action: PayloadAction<pizzaType>) => {
+    addPizza: (state: TpizzaState, action: PayloadAction<Tpizza>) => {
       state.data.push(action.payload);
     },
   },
 });
 
-export interface itemCartType {
-  name: pizzaType["name"];
-  size: string;
-  price: number;
-}
 
-interface cartSliceType {
-  data: itemCartType[];
-  count: number;
-  price: number
-  visible: boolean;
-}
 
-const cartSlice = createSlice({
-  name: "cart",
-  initialState: { data: [], count: 0, price: 0, visible: false },
-  reducers: {
-    addtoCart: (state: cartSliceType, action: PayloadAction<itemCartType>) => {
-      state.data.push(action.payload);
-      state.count++;
-      state.price= state.price +action.payload.price
-    },
-    deleteFromCart: (state: cartSliceType, action: PayloadAction<number>) => {
-      state.count--;
 
-      state.price = state.price-state.data[action.payload].price
-      state.data.splice(action.payload, 1);
-    },
+export const { addPizza } = pizzasSlice.actions;
 
-    toogleCartVisible: (state: cartSliceType) => {
-        state.visible = !state.visible
-    },
-    resetCartData: (state: cartSliceType) => {
-        state.data = []
-        state.count = 0
-        state.price = 0
-    }
-  },
-});
-
-export const { addtoCart,deleteFromCart, toogleCartVisible, resetCartData } = cartSlice.actions;
-
-export const { addPizza } = pizzaSlice.actions;
-
-export const cartReducer = cartSlice.reducer;
-export const pizzaReducer = pizzaSlice.reducer;
+export const pizzasReducer = pizzasSlice.reducer;
