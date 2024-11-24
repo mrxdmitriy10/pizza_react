@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { TpizzaState } from './pizzas.types';
-import { Tpizza } from "../../../5entities/Pizza/models/pizza.types";
+import { Tpizza } from "../../Pizza/models/pizza.types";
 
 
 

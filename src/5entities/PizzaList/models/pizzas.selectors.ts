@@ -1,6 +1,6 @@
 
 
-import { RootState } from "../../../1app/store.d";
+import { RootState } from "../../../1app/store";
 import { createSelector } from 'reselect';
 
 
