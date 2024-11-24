@@ -1,9 +1,23 @@
 
 
-import { count, isVisivble, orderList, price } from "./models/cart.selectors";
+import {
+  count,
+  orderList,
+  price,
+} from "../../5entities/Cart/model/cart.selectors";
+
+
+
+import { cartWidgetReducer, toogleCartWidgetsVisible } from './models/cart.model';
+import { isVisivble } from "./models/cart.selectors";
+
 import { CartWidget } from "./ui/cart.ui";
+
 export default CartWidget;
 
-export const selectors = { price, orderList, isVisivble, count};
 
-export type { TcartSlice, TitemCart } from "./models/cart.types";
+export type {TcartWidgetsSlice} from "./models/cart.types"
+export const actions = { toogleCartWidgetsVisible };
+
+export const selectors = { orderList, isVisivble, price, count };
+export const reducers = {cartWidgetReducer}
