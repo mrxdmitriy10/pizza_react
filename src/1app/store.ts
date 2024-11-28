@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { reducers } from "../2pages/Pizzas";
+import { cartReducer } from "../5entities/Cart";
+import { pizzasReducer } from "../5entities/PizzaList";
+import { cartWidgetReducer } from "../4feature/Cart/placeOrder";
+
 
 export const store = configureStore({
   reducer: {
-    cartReducer: reducers.cartReducer,
-    pizzasReducer: reducers.pizzasReducer,
-    cartWidgetSliceReducer: reducers.cartWidgetReducer,
+    cartReducer: cartReducer,
+    pizzasReducer: pizzasReducer,
+    cartWidgetSliceReducer: cartWidgetReducer,
   },
 });

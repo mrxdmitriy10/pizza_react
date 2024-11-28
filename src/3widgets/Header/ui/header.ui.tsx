@@ -1,18 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { actions, selectors } from "..";
+
 import CartSVG from './cart.svg'
+import { countCartSelector } from "../../../5entities/Cart";
+import { toogleCartWidgetsVisibleAction } from "../../../4feature/Cart";
 
 export const HeaderWidgets = () => {
   const dispatch = useDispatch();
-  const count = useSelector(selectors.count)
+  const countCart = useSelector(countCartSelector)
   return (
     <div className="flex justify-end">
       <button
-        onClick={() => dispatch(actions.toogleCartVisible())}
+        onClick={() => countCart>0&&dispatch(toogleCartWidgetsVisibleAction())}
         className="btn border-1 flex items-center justify-center gap-2 rounded-xl border-orange-400 border-opacity-10 p-3 text-2xl font-light text-orange-500"
       >
-        <img width={30} src={CartSVG} alt="Корзина"></img> {count}
+        <img width={30} src={CartSVG} alt="Корзина"></img> {countCart}
       </button>
     </div>
   );

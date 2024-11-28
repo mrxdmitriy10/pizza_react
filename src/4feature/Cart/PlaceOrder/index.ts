@@ -1,12 +1,17 @@
-import { toogleCartWidgetsVisible } from "../../../3widgets/Cart/models/cart.model";
-import { count } from "../../../5entities/Cart/model/cart.selectors";
-import { PlaceOrderFeature } from "./ui/placeOrder.ui";
 
-export default PlaceOrderFeature
-export const actions = {
-  toogleCartWidgetsVisible
-};
+import { PlaceOrderButton } from "./ui/placeOrderButton";
 
-export const selectors = {
-    count
-}
+
+
+
+
+export type {TcartWidgetsSlice} from "../models/cart.types"
+
+
+
+
+
+export { cartWidgetReducer} from "../models/cart.model";
+
+
+export default PlaceOrderButton

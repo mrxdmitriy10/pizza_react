@@ -5,9 +5,6 @@ import { Tpizza } from "../../Pizza/models/pizza.types";
 
 
 
-
-
-
 const pizzas: Tpizza[] = [
   {
     name: "Неополитанская",
@@ -80,7 +77,7 @@ const pizzasSlice = createSlice({
     data: pizzas,
   },
   reducers: {
-    addPizza: (state: TpizzaState, action: PayloadAction<Tpizza>) => {
+    addPizzaAction: (state: TpizzaState, action: PayloadAction<Tpizza>) => {
       state.data.push(action.payload);
     },
   },
@@ -89,6 +86,6 @@ const pizzasSlice = createSlice({
 
 
 
-export const { addPizza } = pizzasSlice.actions;
+export const { addPizzaAction } = pizzasSlice.actions;
 
 export const pizzasReducer = pizzasSlice.reducer;
