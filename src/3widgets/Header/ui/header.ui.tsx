@@ -11,7 +11,7 @@ export const HeaderWidgets = () => {
   return (
     <div className="flex justify-end">
       <button
-        onClick={() => countCart>0&&dispatch(toogleCartWidgetsVisibleAction())}
+        onClick={() => dispatch(toogleCartWidgetsVisibleAction())}
         className="btn border-1 flex items-center justify-center gap-2 rounded-xl border-orange-400 border-opacity-10 p-3 text-2xl font-light text-orange-500"
       >
         <img width={30} src={CartSVG} alt="Корзина"></img> {countCart}
