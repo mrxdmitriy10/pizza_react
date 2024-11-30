@@ -1,12 +1,6 @@
-import { addtoCart } from "../Cart/model/cart.model";
-import { addPizza, pizzasReducer } from "./models/pizzas.model";
-import { available_pizza } from "./models/pizzas.selectors";
-import { pizzaListEntity } from "./ui/pizzaList.ui";
-export type { Tpizza } from '../Pizza/models/pizza.types';
+import pizzaListEntity from "./ui/pizzaList.ui";
 
+export { addPizzaAction, pizzasReducer } from "./models/pizzas.model";
 
-
-export const actions= {addPizza, addtoCart}
-export const selectors = { available_pizza };
-export const reducers = { pizzasReducer}
+export { availablePizzasSelector } from "./models/pizzas.selectors";
 export default pizzaListEntity

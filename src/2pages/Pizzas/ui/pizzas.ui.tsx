@@ -7,7 +7,7 @@ import CartWidget from "../../../3widgets/Cart";
 import PizzaListWidget from '../../../3widgets/PizzaList/';
 
 
-export default function PizzasPage() {
+const PizzasPage = () => {
 
 
 
@@ -19,3 +19,5 @@ export default function PizzasPage() {
     </>
   );
 }
+
+export default PizzasPage

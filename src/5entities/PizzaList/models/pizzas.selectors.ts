@@ -8,8 +8,8 @@ import { Tpizza } from "../../Pizza/";
 
 
 
-export const available_pizza = createSelector(
-  (state:RootState) => state.pizzasReducer.data,
-  (allPizzas) => allPizzas.map((item:Tpizza) => item),
+export const availablePizzasSelector = createSelector(
+  (state:RootState) => state.pizzasReducer,
+  (allPizzas) => allPizzas.data.map((item:Tpizza) => item),
 )
 
