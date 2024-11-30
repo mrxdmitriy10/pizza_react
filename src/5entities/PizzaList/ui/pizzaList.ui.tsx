@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { availablePizzasSelector } from "..";
 import { Tpizza } from "../../Pizza";
-import { addtoCartAction } from "../../Cart";
+import { addtoCartAction } from "../../Order";
 
 export const pizzaListEntity = () => {
   const availablePizzas = useSelector(availablePizzasSelector);

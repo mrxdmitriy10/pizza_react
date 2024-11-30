@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TcartSlice, TitemCart } from "./cart.types";
+import { TcartSlice, TitemCart } from "./order.types";
 
-const cartSlice = createSlice({
+const orderSlice = createSlice({
     name: "cart",
     initialState: { data: [], count: 0, price: 0, visible: false },
     reducers: {
@@ -26,6 +26,6 @@ const cartSlice = createSlice({
     },
   });
   
-  export const { addtoCartAction,deleteFromCartAction, resetCartDataAction } = cartSlice.actions;
+  export const { addtoCartAction,deleteFromCartAction, resetCartDataAction } = orderSlice.actions;
 
-  export const cartReducer = cartSlice.reducer;
+  export const orderReducer = orderSlice.reducer;

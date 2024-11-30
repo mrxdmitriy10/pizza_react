@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 import CartSVG from './cart.svg'
-import { countCartSelector } from "../../../5entities/Cart";
+import { countCartSelector } from "../../../5entities/Order";
 import { toogleCartWidgetsVisibleAction } from "../../../4feature/Cart";
 
 export const HeaderWidgets = () => {

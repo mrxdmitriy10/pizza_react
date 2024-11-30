@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { TcartWidgetsSlice } from "../placeOrder";
+import { TcartWidgetsSlice } from "../../placeOrder";
 
 const cartWidgetSlice = createSlice({
   name: "cartWidget",

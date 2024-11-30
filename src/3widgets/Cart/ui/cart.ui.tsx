@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 
 
-import CartEntity from "../../../5entities/Cart";
-import { countCartSelector } from "../../../5entities/Cart";
-import PlaceOrderButton from "../../../4feature/Cart/placeOrder";
+import OrderEntity from "../../../5entities/Order";
+import { countCartSelector } from "../../../5entities/Order";
+import PlaceOrderButton from "../../../4feature/placeOrder";
 import { isVisibleSelector } from "../../../4feature/Cart";
 
 
@@ -15,7 +15,7 @@ export const CartWidget: React.FC = () => {
 
   return (
     <> 
-      {isVisible && <CartEntity />}
+      {isVisible && <OrderEntity />}
       {countCart !== 0 && (
         <PlaceOrderButton>
           <div>{countCart}</div>
