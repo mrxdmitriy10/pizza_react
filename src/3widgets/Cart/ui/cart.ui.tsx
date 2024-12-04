@@ -11,7 +11,7 @@ export const CartWidget: React.FC = () => {
   const countCart = useSelector(countCartSelector);
   const isVisible = useSelector(isVisibleSelector)
 
-  console.log(isVisible);
+
 
   return (
     <> 

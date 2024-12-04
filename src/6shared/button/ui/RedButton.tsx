@@ -3,7 +3,7 @@ export const RedButton = ({children, onClick, disable=false}: {
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void,
     disable?: boolean
 }) => {
-  console.log("dis", disable);
+
     
     return (
         <button
