@@ -6,4 +6,17 @@ export interface Tpizza {
       price: number;
     }[];
     img: string;
+    ingridients: Tingridients[]
+  }
+
+
+export enum Tingridients {
+  "chicken" = "курица",
+  "mushrooms" = "грибы",
+  "chease" = "сыр",
+}
+
+  export interface TpizzaState{
+    selectPizza?: Tpizza;
+
   }

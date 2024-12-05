@@ -1,4 +1,5 @@
 export interface TFormState {
-    name: string | null;
-    email: string| null;
+    Name: string | null;
+    Mobile: string| null;
+    DeliveryType: string|null;
   }

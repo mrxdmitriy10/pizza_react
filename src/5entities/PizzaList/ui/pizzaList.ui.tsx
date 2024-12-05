@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { availablePizzasSelector } from "..";
 import { Tpizza } from "../../Pizza";
 import { addtoCartAction } from "../../Order";
+import { setSelectPizza } from "../../Pizza/models/pizza.model";
 
 export const pizzaListEntity = () => {
   const availablePizzas = useSelector(availablePizzasSelector);
@@ -10,6 +11,7 @@ export const pizzaListEntity = () => {
     <>
       {availablePizzas.map((onepizza: Tpizza, index: number) => (
         <div
+          onClick={() => dispatch(setSelectPizza(onepizza))}
           key={index}
           className="group flex w-full flex-col items-center justify-center gap-5 rounded-md transition-all duration-500 ease-in-out hover:text-amber-700"
         >
@@ -21,27 +23,8 @@ export const pizzaListEntity = () => {
           </div>
 
           <div className="text-center">{onepizza.description}</div>
-          <div className="flex">
-            {onepizza.variant.map((params, index) => {
-              return (
-                <div
-                  key={index}
-                  className="flex cursor-none flex-col items-center rounded-md px-3 py-3 hover:bg-orange-300 lg:py-0"
-                  onClick={() =>
-                    dispatch(
-                      addtoCartAction({
-                        name: onepizza.name,
-                        size: params.size,
-                        price: params.price,
-                      }),
-                    )
-                  }
-                >
-                  <div>{params.size}</div>
-                  <div>{params.price} руб</div>
-                </div>
-              );
-            })}
+          <div className="flex w-3/4">
+            <button className="p-5 group-hover:bg-orange-500 transition-all duration-500 ease-in-out group-hover:text-white border-orange-500 border text-orange-600 rounded-full w-full">От {onepizza.variant[0].price}</button>
           </div>
         </div>
       ))}

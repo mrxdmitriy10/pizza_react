@@ -1,6 +1,7 @@
+import { Tingridients } from './../../Pizza/';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { TpizzaState } from './pizzas.types';
+import { TpizzasState } from './pizzas.types';
 import { Tpizza } from "../../Pizza/models/pizza.types";
 
 
@@ -24,6 +25,11 @@ const pizzas: Tpizza[] = [
       },
     ],
     img: "https://media.dodostatic.net/image/r:760x760/11EE7D6154C786F2940500127AA6D33E.avif",
+    ingridients: [
+      Tingridients.chicken,
+      Tingridients.mushrooms,
+      Tingridients.chease
+    ]
   },
   {
     name: "Маргарита",
@@ -44,6 +50,11 @@ const pizzas: Tpizza[] = [
         },
       ],
       img: "https://media.dodostatic.net/image/r:760x760/11EE7D610649F9A898C96EE96FEA37A5.avif",
+      ingridients: [
+        Tingridients.chicken,
+        Tingridients.mushrooms,
+        Tingridients.chease
+      ]
 
   },
   {
@@ -65,8 +76,14 @@ const pizzas: Tpizza[] = [
         },
       ],
       img: "https://media.dodostatic.net/image/r:760x760/11EE7D6130241E75B0AB33725248C0D0.avif",
+      ingridients: [
+        Tingridients.chicken,
+        Tingridients.mushrooms,
+        Tingridients.chease
+      ]
 
   },
+
 ];
 
 
@@ -77,7 +94,7 @@ const pizzasSlice = createSlice({
     data: pizzas,
   },
   reducers: {
-    addPizzaAction: (state: TpizzaState, action: PayloadAction<Tpizza>) => {
+    addPizzaAction: (state: TpizzasState, action: PayloadAction<Tpizza>) => {
       state.data.push(action.payload);
     },
   },

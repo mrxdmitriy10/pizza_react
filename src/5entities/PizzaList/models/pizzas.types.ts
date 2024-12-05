@@ -1,6 +1,6 @@
 import { Tpizza } from "../../Pizza";
 
-export interface TpizzaState {
+export interface TpizzasState {
     data: Tpizza[];
   }
   

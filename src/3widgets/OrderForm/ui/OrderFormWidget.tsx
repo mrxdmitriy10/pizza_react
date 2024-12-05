@@ -2,31 +2,31 @@ import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { orderListCartSelector } from "../../../5entities/Order";
 import { PayorderBtn } from "../../../4feature/PayOrder";
+import { TFormState } from "../model/OrderFormWidget.types";
 
 export const OrderFormWidget = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm();
+    watch,
+  } = useForm<TFormState>();
   const orderList = useSelector(orderListCartSelector);
 
-  const onSubmit = (formData: any): void => {
+  const onSubmit = (formData: TFormState): void => {
     if (orderList.length) {
-      console.log({ formData, orderList, errors, isValid });
+      console.log({ formData, orderList });
     }
   };
 
-  const onChange = () => {};
-
+ 
   return (
     <>
       <form
-        onChange={onChange}
         onSubmit={handleSubmit(onSubmit)}
         className="m-auto flex w-3/4 flex-col gap-4"
       >
-        <div className="flex flex-col md:flex-row transition-all justify-between gap-4">
+        <div className="flex flex-col justify-between gap-4 transition-all md:flex-row">
           <input
             aria-invalid={errors.Name ? "true" : "false"}
             className="w-full rounded-full border-2 p-4 text-lg"
@@ -41,7 +41,7 @@ export const OrderFormWidget = () => {
           <input
             aria-invalid={errors.Mobile ? "true" : "false"}
             placeholder="Телефон"
-            className="rounded-full w-full border-2 p-4 text-lg invalid:border-red-500"
+            className="w-full rounded-full border-2 p-4 text-lg invalid:border-red-500"
             type="text"
             {...register("Mobile", {
               required: "Поле телефон обязательно для ввода",
@@ -72,7 +72,7 @@ export const OrderFormWidget = () => {
 
           <div>
             <label
-              htmlFor="DeliveryStandard"
+              htmlFor="DeliveryType_Delivery"
               className="flex cursor-pointer justify-between gap-4 rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-amber-600 has-[:checked]:ring-1 has-[:checked]:ring-amber-500"
             >
               <div>
@@ -82,11 +82,12 @@ export const OrderFormWidget = () => {
               </div>
 
               <input
-                {...register("asdasd", { required: true })}
+                {...register("DeliveryType", {
+                  required: "Выберите способ получения",
+                })}
+                id="DeliveryType_Delivery"
                 type="radio"
-                name="DeliveryOption"
-                value="DeliveryStandard"
-                id="DeliveryStandard"
+                value="Delivery"
                 className="size-5 border-gray-300 text-amber-500"
               />
             </label>
@@ -94,7 +95,7 @@ export const OrderFormWidget = () => {
 
           <div>
             <label
-              htmlFor="DeliveryPriority"
+              htmlFor="DeliveryType_Pickup"
               className="flex cursor-pointer justify-between gap-4 rounded-lg border border-gray-100 bg-white p-4 text-sm font-medium shadow-sm hover:border-gray-200 has-[:checked]:border-amber-600 has-[:checked]:ring-1 has-[:checked]:ring-amber-600"
             >
               <div>
@@ -104,16 +105,22 @@ export const OrderFormWidget = () => {
               </div>
 
               <input
-                {...register("asdasd", { required: true })}
+                {...register("DeliveryType", {
+                  required: "Выберите способ получения",
+                })}
+                id="DeliveryType_Pickup"
                 type="radio"
-                name="DeliveryOption"
-                value="DeliveryPriority"
-                id="DeliveryPriority"
+                value="Pickup"
                 className="size-5 border-gray-300 text-amber-500"
               />
             </label>
           </div>
         </fieldset>
+        <div className="flex flex-col font-mono text-sm text-red-400">
+          {errors.DeliveryType && errors.DeliveryType.type === "required" && (
+            <span role="alert">*{errors.DeliveryType.message?.toString()}</span>
+          )}
+        </div>
 
         <PayorderBtn disable={!isValid} fn={handleSubmit(onSubmit)} />
       </form>
