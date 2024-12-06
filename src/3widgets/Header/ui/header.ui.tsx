@@ -9,7 +9,7 @@ export const HeaderWidgets = () => {
   const dispatch = useDispatch();
   const countCart = useSelector(countCartSelector)
   return (
-    <div className="flex justify-end">
+    <div className="flex justify-end sticky top-0 z-30 w-full bg-white">
       <button
         onClick={() => dispatch(toogleCartWidgetsVisibleAction())}
         className="btn border-1 flex items-center justify-center gap-2 rounded-xl border-orange-400 border-opacity-10 p-3 text-2xl font-light text-orange-500"

@@ -14,11 +14,13 @@ const PizzasPage = () => {
 
 
   return (
-    <>
-      <CartWidget />
+    <div className="flex flex-col justify-between">
+            <CartWidget />
+
       <PizzaListWidget />
       <ItemPizza /> 
-    </>
+
+    </div>
   );
 }
 

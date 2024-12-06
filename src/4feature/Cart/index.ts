@@ -1,3 +1,3 @@
 export { isVisibleSelector } from './models/cart.selectors';
-export { toogleCartWidgetsVisibleAction } from "./models/cart.model";
+export { toogleCartWidgetsVisibleAction, hideCartWidgetsAction } from "./models/cart.model";
 

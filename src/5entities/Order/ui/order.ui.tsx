@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFromCartAction, orderListCartSelector, TitemCart } from "..";
+import { hideCartWidgetsAction } from "../../../4feature/Cart";
 
 export const OrderEntity = () => {
   const orderList = useSelector(orderListCartSelector);
   const dispatch = useDispatch();
-  if (orderList.length == 0) return <div className="m-auto">Корзина пуста</div>
+  if (orderList.length == 0) dispatch(hideCartWidgetsAction())
   return (
-    <div>
+    <div className="py-5">
       {orderList.map((itemPizza: TitemCart, index: number) => (
         <div
           onClick={() => dispatch(deleteFromCartAction(index))}

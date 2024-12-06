@@ -9,7 +9,6 @@ export const OrderFormWidget = () => {
     register,
     handleSubmit,
     formState: { errors, isValid },
-    watch,
   } = useForm<TFormState>();
   const orderList = useSelector(orderListCartSelector);
 

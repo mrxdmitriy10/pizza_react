@@ -11,8 +11,15 @@ const cartWidgetSlice = createSlice({
       
       state.isVisible = !state.isVisible
     },
+
+    hideCartWidgetsAction: (state: TcartWidgetsSlice) => {
+
+      
+      state.isVisible = false
+    },
+
   },
 });
 
-export const { toogleCartWidgetsVisibleAction } = cartWidgetSlice.actions;
+export const { toogleCartWidgetsVisibleAction, hideCartWidgetsAction } = cartWidgetSlice.actions;
 export const cartWidgetReducer = cartWidgetSlice.reducer;

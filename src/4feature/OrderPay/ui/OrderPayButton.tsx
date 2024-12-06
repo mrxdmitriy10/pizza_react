@@ -1,9 +1,9 @@
-import { RedButton } from "../../../6shared/button";
+import { BigButton, colorsbutton } from "../../../6shared/button";
 
 export const OrderPayButton = () => {
   const payClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
   };
 
-  return <RedButton onClick={(e) => payClick(e)}>Оплатить заказ</RedButton>;
+  return <BigButton color={colorsbutton.fill_green_border} onClick={(e) => payClick(e)}>Оплатить заказ</BigButton>;
 };

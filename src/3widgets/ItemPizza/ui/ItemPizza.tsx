@@ -12,7 +12,7 @@ export const ItemPizza = () => {
     onepizza && (
       <div
         onClick={() => dispatch(resetSelectPizza())}
-        className="fixed left-0 top-0 z-40 flex h-full w-full items-center justify-center bg-black bg-opacity-50 bg-blend-saturation"
+        className="fixed top-0 left-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50 bg-blend-saturation"
       >
         <div
           onClick={(e) => e.stopPropagation()}
@@ -23,7 +23,6 @@ export const ItemPizza = () => {
           </div>
 
 
-          
 
 
 

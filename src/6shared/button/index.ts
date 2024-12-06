@@ -1,1 +1,3 @@
-export {RedButton} from "./ui/RedButton";
+export { colorsbutton } from './model/colorsbutton.types';
+export {BigButton} from "./ui/BigButton";
+
