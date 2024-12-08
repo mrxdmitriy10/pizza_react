@@ -39,7 +39,7 @@ export const ItemPizza = () => {
               {onepizza.variant.map((params, index) => {
                 return (
                   <div
-                    key={index}fix
+                    key={index}
                     className="flex cursor-none flex-col items-center rounded-md px-3 py-3 hover:bg-orange-300 lg:py-0"
                     onClick={() =>
                       dispatch(
